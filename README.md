@@ -3,8 +3,8 @@ Grafana Dashboards for Prometheus Node Exporter
 
 使用 Node Exporter v0.16，精简优化重要指标展示。  
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
-##### 同性交友
-[https://github.com/starsliao/Prometheus](https://github.com/starsliao/Prometheus)
+##### 安装
+[Grafana Dashboards](https://grafana.com/orgs/starsliao/dashboards)
 ##### 预览
 [https://snapshot.raintank.io/dashboard/snapshot/SuYBliDVNMa1dt5FiXmwkfUCYyeBojWn](https://snapshot.raintank.io/dashboard/snapshot/SuYBliDVNMa1dt5FiXmwkfUCYyeBojWn)
 ##### 需要安装饼图的插件：
