@@ -1,3 +1,4 @@
+![](https://grafana.com/api/dashboards/8919/images/5601/image)
 # Prometheus
 Grafana Dashboards for Prometheus Node Exporter  
 
