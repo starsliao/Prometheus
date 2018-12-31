@@ -1,7 +1,7 @@
 ![](https://grafana.com/api/dashboards/8919/images/5601/image)
 # Prometheus
 Grafana Dashboards for Prometheus Node Exporter  
-###  Grafana v5.4.2 + node_exporter 0.17 测试使用正常。
+###  Grafana v5.4.2 +  node_exporter 0.16 、node_exporter 0.17 测试使用正常。
 使用 Node Exporter v0.17，以实用为主，精简优化重要指标进行展示。  
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
 ##### Snapshot
