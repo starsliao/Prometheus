@@ -2,12 +2,8 @@
 # Prometheus
 Grafana Dashboards for Prometheus Node Exporter  
 
-使用 Node Exporter v0.16，以实用为主，精简优化重要指标进行展示。  
+使用 Node Exporter v0.17，以实用为主，精简优化重要指标进行展示。  
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
-
-##### 安装
-[Grafana Dashboards](https://grafana.com/orgs/starsliao/dashboards)
-
 ##### Snapshot
 [https://snapshot.raintank.io/dashboard/snapshot/SuYBliDVNMa1dt5FiXmwkfUCYyeBojWn](https://snapshot.raintank.io/dashboard/snapshot/SuYBliDVNMa1dt5FiXmwkfUCYyeBojWn)
 #### 注意事项：
@@ -30,6 +26,9 @@ $node：label_values(node_exporter_build_info{name='$name'},instance)
 #maxmount根据$node来查询当前主机的最大分区挂载点。
 $maxmount：query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instance=~'$node',fstype=~"ext4|xfs"}) by (mountpoint))))		
 ```
+##### 关注公众号获取更多...
+![](https://grafana.com/api/dashboards/8919/images/5985/image)
+
 ### 【update】：
 ##### 11/16
 1. 增加了变量的说明。
@@ -41,4 +40,6 @@ $maxmount：query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instan
 4. 增加部分监控指标的描述。
 5. 优化部分指标的显示结果。
 ##### 11/13  
-1. 增加磁盘每秒的I/O操作耗费时间占比图形。
+1. 增加磁盘每秒的I/O操作耗费时间占比图形。  
+
+![](https://grafana.com/api/dashboards/8919/images/5601/image)
