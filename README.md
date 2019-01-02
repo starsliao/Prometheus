@@ -41,5 +41,3 @@ $maxmount：query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instan
 5. 优化部分指标的显示结果。
 ##### 11/13  
 1. 增加磁盘每秒的I/O操作耗费时间占比图形。  
-
-![](https://grafana.com/api/dashboards/8919/images/5601/image)
