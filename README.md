@@ -11,7 +11,7 @@
 grafana-cli plugins install grafana-piechart-panel
 # 请确保安装后能正常添加饼图。
 ```
-##### 请根据实际情况设置好变量后使用：
+#### 请根据实际情况在grafana该面板的设置中配置好变量后使用：
 
 - **必须：`$node`取值node_exporter的`instance`，IP+端口格式。该看板大部分查询关联了这个变量，请确保该变量有效**：
 - 注意：可在Prometheus中使用`count(node_exporter_build_info) by(instance,version)`查询各node的instance格式和版本。
