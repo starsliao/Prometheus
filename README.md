@@ -2,7 +2,7 @@
 使用 Node Exporter v0.17，以实用为主，精简优化重要指标进行展示。  
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
 ##### 截图
-![](https://images-1252320690.cos.ap-guangzhou.myqcloud.com/image.jpg)
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/screenshot.jpg)
 ##### 预览
 [https://snapshot.raintank.io/dashboard/snapshot/7rqSF6hj858RnyEw0951y5sGTmSzknqr](https://snapshot.raintank.io/dashboard/snapshot/7rqSF6hj858RnyEw0951y5sGTmSzknqr)
 #### 注意事项：
