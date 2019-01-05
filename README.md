@@ -35,7 +35,7 @@ label_values(node_exporter_build_info,env)
 label_values(node_exporter_build_info{env='$env'},name)
 ```
 ##### 关注公众号获取更多...
-![](https://images-1252320690.cos.ap-guangzhou.myqcloud.com/qr.png)
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/qr.png)
 ### 【update】：
 ##### 11/16
 1. 增加了变量的说明。
