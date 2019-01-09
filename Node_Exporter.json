@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS_111",
-      "label": "prometheus",
+      "label": "prometheus_111",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.3.2"
+      "version": "5.4.2"
     },
     {
       "type": "panel",
@@ -66,13 +66,32 @@
       }
     ]
   },
-  "description": "使用 Node Exporter v0.16，精简优化重要指标展示。\r\n包含：CPU 内存 磁盘 IO 网络 温度等监控指标。\r\nhttps://github.com/starsliao/Prometheus",
+  "description": "使用 Node Exporter v0.16 0.17，精简优化重要指标展示。包含：CPU 内存 磁盘 IO 网络 温度等监控指标。https://github.com/starsliao/Prometheus",
   "editable": true,
   "gnetId": 8919,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1542357033300,
-  "links": [],
+  "iteration": 1547007234803,
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "更新node_exporter",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://github.com/prometheus/node_exporter/releases"
+    },
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "更新仪表板",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://grafana.com/dashboards/8919"
+    }
+  ],
   "panels": [
     {
       "content": "",
@@ -505,7 +524,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "((node_memory_MemTotal_bytes{instance=~\"$node\"} - node_memory_MemFree_bytes{instance=~\"$node\"} - node_memory_Buffers_bytes{instance=~\"$node\"} - node_memory_Cached_bytes{instance=~\"$node\"}) / (node_memory_MemTotal_bytes{instance=~\"$node\"} )) * 100",
+          "expr": "(1 - (node_memory_MemAvailable_bytes{instance=~\"$node\"} / (node_memory_MemTotal_bytes{instance=~\"$node\"})))* 100",
           "format": "time_series",
           "hide": false,
           "interval": "10s",
@@ -590,6 +609,7 @@
         {
           "expr": "node_filefd_allocated{instance=~\"$node\"}",
           "format": "time_series",
+          "instant": false,
           "interval": "10s",
           "intervalFactor": 1,
           "refId": "B"
@@ -945,6 +965,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "系统平均负载",
       "tooltip": {
@@ -1292,7 +1313,7 @@
         {
           "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"idle\"}[1m]))",
           "format": "time_series",
-          "hide": false,
+          "hide": true,
           "intervalFactor": 2,
           "legendFormat": "Idle",
           "refId": "F",
@@ -1316,6 +1337,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU使用率、磁盘每秒的I/O操作耗费时间（%）",
       "tooltip": {
@@ -1338,7 +1360,7 @@
           "format": "percentunit",
           "label": "",
           "logBase": 1,
-          "max": "1",
+          "max": null,
           "min": null,
           "show": true
         },
@@ -1362,14 +1384,16 @@
         "内存_Cached": "#EF843C",
         "内存_Free": "#629E51",
         "内存_Total": "#6d1f62",
-        "内存_Used": "#eab839"
+        "内存_Used": "#eab839",
+        "可用": "#9ac48a",
+        "总内存": "#bf1b00"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_PROMETHEUS_111}",
       "decimals": 2,
-      "fill": 1,
+      "fill": 6,
       "gridPos": {
         "h": 7,
         "w": 8,
@@ -1390,7 +1414,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 2,
+      "linewidth": 3,
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
@@ -1406,13 +1430,14 @@
           "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"}",
           "format": "time_series",
           "hide": false,
+          "instant": false,
           "intervalFactor": 2,
           "legendFormat": "总内存",
           "refId": "A",
           "step": 4
         },
         {
-          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"} - (node_memory_Cached_bytes{instance=~\"$node\"} + node_memory_Buffers_bytes{instance=~\"$node\"} + node_memory_MemFree_bytes{instance=~\"$node\"})",
+          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"} - node_memory_MemAvailable_bytes{instance=~\"$node\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1456,10 +1481,18 @@
           "legendFormat": "可用",
           "refId": "F",
           "step": 4
+        },
+        {
+          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"} - (node_memory_Cached_bytes{instance=~\"$node\"} + node_memory_Buffers_bytes{instance=~\"$node\"} + node_memory_MemFree_bytes{instance=~\"$node\"})",
+          "format": "time_series",
+          "hide": true,
+          "intervalFactor": 1,
+          "refId": "G"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "内存信息",
       "tooltip": {
@@ -1477,7 +1510,7 @@
       },
       "yaxes": [
         {
-          "format": "decbytes",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1577,6 +1610,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "磁盘读写速率（IOPS）",
       "tooltip": {
@@ -1685,6 +1719,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "磁盘读写容量大小",
       "tooltip": {
@@ -1810,6 +1845,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "磁盘IO读写时间",
       "tooltip": {
@@ -1912,6 +1948,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "网络流量",
       "tooltip": {
@@ -2041,6 +2078,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "TCP 连接情况",
       "tooltip": {
@@ -2130,6 +2168,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "硬件温度",
       "tooltip": {
@@ -2183,20 +2222,21 @@
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "text": "1m",
-          "value": "1m"
+          "selected": true,
+          "text": "auto",
+          "value": "$__auto_interval_interval"
         },
         "hide": 0,
         "label": "interval",
         "name": "interval",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "auto",
             "value": "$__auto_interval_interval"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "1m",
             "value": "1m"
           },
@@ -2256,6 +2296,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_PROMETHEUS_111}",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "环境",
@@ -2279,6 +2320,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_PROMETHEUS_111}",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "主机名",
@@ -2302,6 +2344,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_PROMETHEUS_111}",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "节点",
@@ -2324,6 +2367,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_PROMETHEUS_111}",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -2344,7 +2388,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -2374,7 +2418,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "a Node Exporter 0.16+ 监控展示看板 for Prometheus",
+  "title": "1 Node Exporter 0.16 0.17 for Prometheus 监控展示看板",
   "uid": "9CWBz0bik",
-  "version": 28
+  "version": 44
 }
