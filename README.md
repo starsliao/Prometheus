@@ -41,7 +41,7 @@ label_values(node_exporter_build_info{env='$env'},name)
 ##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
 ![](https://raw.githubusercontent.com/starsliao/Prometheus/master/qr.png)
 ### 【update】：
-##### 2018/1/9
+##### 2019/1/9
 1. 修复了一个展示内存使用量不准确的bug。
 2. 增加了更新node_exporter和仪表板的外链。
 3. Grafana v5.4.2 + node_exporter 0.16 、node_exporter 0.17 测试使用正常。
