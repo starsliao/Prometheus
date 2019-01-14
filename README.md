@@ -3,8 +3,8 @@
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
 ##### 截图
 ![](https://raw.githubusercontent.com/starsliao/Prometheus/master/screenshot.jpg)
-##### 预览
-[https://snapshot.raintank.io/dashboard/snapshot/7rqSF6hj858RnyEw0951y5sGTmSzknqr](https://snapshot.raintank.io/dashboard/snapshot/7rqSF6hj858RnyEw0951y5sGTmSzknqr)
+##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/qr.png)
 #### 注意事项：
 ##### 需要安装饼图的插件：
 ```
@@ -38,8 +38,6 @@ label_values(node_exporter_build_info,env)
 ```
 label_values(node_exporter_build_info{env='$env'},name)
 ```
-##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
-![](https://raw.githubusercontent.com/starsliao/Prometheus/master/qr.png)
 ### 【update】：
 ##### 2019/1/9
 1. 修复了一个展示内存使用量不准确的bug。
