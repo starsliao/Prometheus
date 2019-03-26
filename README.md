@@ -1,3 +1,7 @@
+>目前在使用的TCP，ICMP，HTTPS服务状态监控 Prometheus Blackbox Exporter，在一个看板里面展示，做了展示效果的优化，支持多服务同时展示，需要使用的可以参考下，记得根据自己的实际情况修改下变量。
+### 记得安装饼图插件
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/blackbox-exporter.png)
+
 ###  Grafana v5.4.2 +  node_exporter 0.16 、node_exporter 0.17 测试使用正常。
 使用 Node Exporter v0.17，以实用为主，精简优化重要指标进行展示。  
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
