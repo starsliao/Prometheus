@@ -2,7 +2,7 @@
 >目前在使用的TCP，ICMP，HTTPS服务状态监控 Prometheus Blackbox Exporter，在一个看板里面展示，做了展示效果的优化，支持多服务同时展示，需要使用的可以参考下，记得根据自己的实际情况修改下变量。
 ### 记得安装饼图插件
 ![](https://raw.githubusercontent.com/starsliao/Prometheus/master/blackbox-exporter.png)
-
+---
 ## Node Exporter 0.16 0.17 for Prometheus 监控展示看板
 #### Grafana v5.4.2 +  node_exporter 0.16 、node_exporter 0.17 测试使用正常。
 使用 Node Exporter v0.17，以实用为主，精简优化重要指标进行展示。  
@@ -17,7 +17,7 @@
 grafana-cli plugins install grafana-piechart-panel
 # 请确保安装后能正常添加饼图。
 ```
----
+
 #### 请根据实际情况在grafana该面板的设置中配置好变量后使用：
 
 - **必须：`$node`取值node_exporter的`instance`，IP+端口格式。该看板大部分查询关联了这个变量，请确保该变量有效**：
