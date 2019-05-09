@@ -524,7 +524,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(1 - (node_memory_MemAvailable_bytes{instance=~\"$node\"} / (node_memory_MemTotal_bytes{instance=~\"$node\"})))* 100",
+          "expr": "100 * (1-(node_memory_Cached_bytes{instance=~\"$node\"} + node_memory_Buffers_bytes{instance=~\"$node\"} + node_memory_MemFree_bytes{instance=~\"$node\"}) / node_memory_MemTotal_bytes{instance=~\"$node\"})\n",
           "format": "time_series",
           "hide": false,
           "interval": "10s",
