@@ -66,12 +66,12 @@
       }
     ]
   },
-  "description": "使用 Node Exporter v0.16 0.17，精简优化重要指标展示。包含：CPU 内存 磁盘 IO 网络 温度等监控指标。https://github.com/starsliao/Prometheus",
+  "description": "使用 Node Exporter v0.16--0.18，精简优化重要指标展示。包含：CPU 内存 磁盘 IO 网络 温度等监控指标。https://github.com/starsliao/Prometheus",
   "editable": true,
   "gnetId": 8919,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1547007234803,
+  "iteration": 1558344525349,
   "links": [
     {
       "icon": "external link",
@@ -116,7 +116,9 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorValue": false,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": true,
       "colors": [
         "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
@@ -137,7 +139,7 @@
         "h": 5,
         "w": 2,
         "x": 0,
-        "y": 1
+        "y": 2
       },
       "hideTimeOverride": true,
       "id": 15,
@@ -186,7 +188,7 @@
           "step": 40
         }
       ],
-      "thresholds": "",
+      "thresholds": "1,2",
       "title": "系统运行时间",
       "transparent": false,
       "type": "singlestat",
@@ -203,7 +205,8 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorValue": false,
+      "colorPostfix": false,
+      "colorValue": true,
       "colors": [
         "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
@@ -223,7 +226,7 @@
         "h": 2,
         "w": 2,
         "x": 2,
-        "y": 1
+        "y": 2
       },
       "id": 14,
       "interval": null,
@@ -272,7 +275,7 @@
           "step": 20
         }
       ],
-      "thresholds": "",
+      "thresholds": "1,2",
       "title": "CPU 核数",
       "type": "singlestat",
       "valueFontSize": "100%",
@@ -309,7 +312,7 @@
         "h": 5,
         "w": 3,
         "x": 4,
-        "y": 1
+        "y": 2
       },
       "id": 167,
       "interval": null,
@@ -396,7 +399,7 @@
         "h": 5,
         "w": 3,
         "x": 7,
-        "y": 1
+        "y": 2
       },
       "id": 20,
       "interval": null,
@@ -483,7 +486,7 @@
         "h": 5,
         "w": 3,
         "x": 10,
-        "y": 1
+        "y": 2
       },
       "hideTimeOverride": false,
       "id": 172,
@@ -566,7 +569,7 @@
         "h": 5,
         "w": 3,
         "x": 13,
-        "y": 1
+        "y": 2
       },
       "hideTimeOverride": false,
       "id": 16,
@@ -647,7 +650,7 @@
         "h": 5,
         "w": 4,
         "x": 16,
-        "y": 1
+        "y": 2
       },
       "id": 166,
       "interval": null,
@@ -733,7 +736,7 @@
         "h": 5,
         "w": 4,
         "x": 20,
-        "y": 1
+        "y": 2
       },
       "id": 154,
       "interval": null,
@@ -799,7 +802,7 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorValue": false,
+      "colorValue": true,
       "colors": [
         "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
@@ -820,7 +823,7 @@
         "h": 3,
         "w": 2,
         "x": 2,
-        "y": 3
+        "y": 4
       },
       "id": 75,
       "interval": null,
@@ -869,7 +872,7 @@
           "step": 20
         }
       ],
-      "thresholds": "",
+      "thresholds": "2,3",
       "title": "内存总量",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -900,15 +903,15 @@
         "h": 6,
         "w": 11,
         "x": 0,
-        "y": 6
+        "y": 7
       },
       "height": "300",
       "id": 13,
       "legend": {
         "alignAsTable": true,
-        "avg": true,
+        "avg": false,
         "current": true,
-        "max": true,
+        "max": false,
         "min": false,
         "rightSide": true,
         "show": true,
@@ -936,7 +939,7 @@
           "instant": false,
           "interval": "10s",
           "intervalFactor": 2,
-          "legendFormat": "1m",
+          "legendFormat": "{{instance}}_1m",
           "metric": "",
           "refId": "A",
           "step": 20,
@@ -948,7 +951,7 @@
           "instant": false,
           "interval": "10s",
           "intervalFactor": 2,
-          "legendFormat": "5m",
+          "legendFormat": "{{instance}}_5m",
           "refId": "B",
           "step": 20
         },
@@ -958,7 +961,7 @@
           "instant": false,
           "interval": "10s",
           "intervalFactor": 2,
-          "legendFormat": "15m",
+          "legendFormat": "{{instance}}_15m",
           "refId": "C",
           "step": 20
         }
@@ -1023,7 +1026,7 @@
         "h": 6,
         "w": 5,
         "x": 11,
-        "y": 6
+        "y": 7
       },
       "hideTimeOverride": false,
       "id": 171,
@@ -1065,7 +1068,7 @@
         "h": 6,
         "w": 8,
         "x": 16,
-        "y": 6
+        "y": 7
       },
       "id": 164,
       "links": [],
@@ -1073,8 +1076,8 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 11,
-        "desc": true
+        "col": 6,
+        "desc": false
       },
       "styles": [
         {
@@ -1174,6 +1177,23 @@
           "unit": "short"
         },
         {
+          "alias": "IP",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
           "alias": "",
           "colorMode": null,
           "colors": [
@@ -1259,7 +1279,7 @@
         "h": 7,
         "w": 16,
         "x": 0,
-        "y": 12
+        "y": 13
       },
       "id": 7,
       "legend": {
@@ -1294,36 +1314,40 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"system\"}[1m]))",
+          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"system\"}[1m])) by (instance)",
           "format": "time_series",
+          "hide": false,
+          "instant": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "System",
+          "legendFormat": "{{instance}}_System",
           "refId": "A",
           "step": 20
         },
         {
-          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"user\"}[1m]))",
+          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"user\"}[1m])) by (instance)",
           "format": "time_series",
+          "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "User",
+          "legendFormat": "{{instance}}_User",
           "refId": "B",
           "step": 240
         },
         {
-          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"idle\"}[1m]))",
+          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"idle\"}[1m])) by (instance)",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 2,
-          "legendFormat": "Idle",
+          "legendFormat": "{{instance}}_Idle",
           "refId": "F",
           "step": 240
         },
         {
-          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"iowait\"}[1m]))",
+          "expr": "avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"iowait\"}[1m])) by (instance)",
           "format": "time_series",
+          "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "Iowait",
+          "legendFormat": "{{instance}}_Iowait",
           "refId": "D",
           "step": 240
         },
@@ -1331,7 +1355,7 @@
           "expr": "irate(node_disk_io_time_seconds_total{instance=~\"$node\"}[1m])",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{device}}_每秒I/O操作%",
+          "legendFormat": "{{instance}}_{{device}}_每秒I/O操作%",
           "refId": "C"
         }
       ],
@@ -1398,18 +1422,20 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 12
+        "y": 13
       },
       "height": "300",
       "id": 156,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": true,
         "max": false,
         "min": false,
         "rightSide": false,
         "show": true,
+        "sort": "current",
+        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -1432,7 +1458,7 @@
           "hide": false,
           "instant": false,
           "intervalFactor": 2,
-          "legendFormat": "总内存",
+          "legendFormat": "{{instance}}_总内存",
           "refId": "A",
           "step": 4
         },
@@ -1441,7 +1467,7 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "已用",
+          "legendFormat": "{{instance}}_已用",
           "refId": "B",
           "step": 4
         },
@@ -1478,7 +1504,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "可用",
+          "legendFormat": "{{instance}}_可用",
           "refId": "F",
           "step": 4
         },
@@ -1545,12 +1571,12 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 19
+        "y": 20
       },
       "height": "300",
       "id": 161,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": true,
         "hideEmpty": true,
@@ -1558,6 +1584,8 @@
         "max": true,
         "min": false,
         "show": true,
+        "sort": "current",
+        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -1585,7 +1613,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{device}}_读取",
+          "legendFormat": "{{instance}}_{{device}}_读取",
           "refId": "A",
           "step": 10
         },
@@ -1594,7 +1622,7 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{device}}_写入",
+          "legendFormat": "{{instance}}_{{device}}_写入",
           "refId": "B",
           "step": 10
         },
@@ -1664,12 +1692,12 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 19
+        "y": 20
       },
       "height": "300",
       "id": 168,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": true,
         "hideEmpty": true,
@@ -1703,7 +1731,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{device}}_读取",
+          "legendFormat": "{{instance}}_{{device}}_读取",
           "refId": "A",
           "step": 10
         },
@@ -1712,7 +1740,7 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{device}}_写入",
+          "legendFormat": "{{instance}}_{{device}}_写入",
           "refId": "B",
           "step": 10
         }
@@ -1773,12 +1801,12 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 19
+        "y": 20
       },
       "height": "300",
       "id": 160,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": true,
         "hideEmpty": true,
@@ -1831,7 +1859,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{device}}_读取",
+          "legendFormat": "{{instance}}_{{device}}_读取",
           "refId": "B"
         },
         {
@@ -1839,7 +1867,7 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
-          "legendFormat": "{{device}}_写入",
+          "legendFormat": "{{instance}}_{{device}}_写入",
           "refId": "C"
         }
       ],
@@ -1895,19 +1923,22 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 27
+        "y": 28
       },
       "height": "300",
       "id": 157,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": true,
         "hideEmpty": true,
         "hideZero": true,
         "max": false,
         "min": false,
+        "rightSide": true,
         "show": true,
+        "sort": "current",
+        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -1930,18 +1961,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(node_network_receive_bytes_total{instance=~'$node',device!~'tap.*'}[5m])*8",
+          "expr": "irate(node_network_receive_bytes_total{instance=~'$node',device!~'tap.*|veth.*|br.*|docker.*|virbr*|lo*'}[5m])*8",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{device}}_in下载",
+          "legendFormat": "{{instance}}_{{device}}_in下载",
           "refId": "A",
           "step": 4
         },
         {
-          "expr": "irate(node_network_transmit_bytes_total{instance=~'$node',device!~'tap.*'}[5m])*8",
+          "expr": "irate(node_network_transmit_bytes_total{instance=~'$node',device!~'tap.*|veth.*|br.*|docker.*|virbr*|lo*'}[5m])*8",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{device}}_out上传",
+          "legendFormat": "{{instance}}_{{device}}_out上传",
           "refId": "B",
           "step": 4
         }
@@ -2001,7 +2032,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 27
+        "y": 28
       },
       "height": "300",
       "id": 158,
@@ -2035,7 +2066,7 @@
           "hide": false,
           "interval": "10s",
           "intervalFactor": 1,
-          "legendFormat": "ESTABLISHED",
+          "legendFormat": "{{instance}}_ESTABLISHED",
           "refId": "A",
           "step": 20
         },
@@ -2043,7 +2074,7 @@
           "expr": "node_sockstat_TCP_tw{instance=~'$node'}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "TCP_tw",
+          "legendFormat": "{{instance}}_TCP_tw",
           "refId": "D"
         },
         {
@@ -2051,28 +2082,28 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
-          "legendFormat": "ActiveOpens",
+          "legendFormat": "{{instance}}_ActiveOpens",
           "refId": "B"
         },
         {
           "expr": "irate(node_netstat_Tcp_PassiveOpens{instance=~'$node'}[1m])",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "PassiveOpens",
+          "legendFormat": "{{instance}}_PassiveOpens",
           "refId": "C"
         },
         {
           "expr": "node_sockstat_TCP_alloc{instance=~'$node'}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "TCP_alloc",
+          "legendFormat": "{{instance}}_TCP_alloc",
           "refId": "E"
         },
         {
           "expr": "node_sockstat_TCP_inuse{instance=~'$node'}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "TCP_inuse",
+          "legendFormat": "{{instance}}_TCP_inuse",
           "refId": "F"
         }
       ],
@@ -2129,7 +2160,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 35
+        "y": 36
       },
       "id": 169,
       "legend": {
@@ -2159,10 +2190,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_hwmon_temp_celsius{instance=\"$node\"}",
+          "expr": "node_hwmon_temp_celsius{instance=~'$node'}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{chip}} {{sensor}}",
+          "legendFormat": "{{instance}}_{{chip}}_{{sensor}}",
           "refId": "A"
         }
       ],
@@ -2212,28 +2243,43 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "StarsL",
-    "Prometheus"
+    "Prometheus",
+    "node_exporter",
+    "StarsL.cn"
   ],
   "templating": {
     "list": [
       {
         "auto": true,
-        "auto_count": 30,
+        "auto_count": 10,
         "auto_min": "10s",
         "current": {
-          "selected": true,
-          "text": "auto",
-          "value": "$__auto_interval_interval"
+          "text": "5s",
+          "value": "5s"
         },
         "hide": 0,
         "label": "interval",
         "name": "interval",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "auto",
             "value": "$__auto_interval_interval"
+          },
+          {
+            "selected": true,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "10s",
+            "value": "10s"
+          },
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
           },
           {
             "selected": false,
@@ -2269,24 +2315,9 @@
             "selected": false,
             "text": "1d",
             "value": "1d"
-          },
-          {
-            "selected": false,
-            "text": "7d",
-            "value": "7d"
-          },
-          {
-            "selected": false,
-            "text": "14d",
-            "value": "14d"
-          },
-          {
-            "selected": false,
-            "text": "30d",
-            "value": "30d"
           }
         ],
-        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "query": "5s,10s,30s,1m,10m,30m,1h,6h,12h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2298,14 +2329,14 @@
         "datasource": "${DS_PROMETHEUS_111}",
         "definition": "",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "环境",
-        "multi": false,
+        "multi": true,
         "multiFormat": "regex values",
         "name": "env",
         "options": [],
         "query": "label_values(node_exporter_build_info,env)",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
@@ -2317,23 +2348,23 @@
       },
       {
         "allFormat": "glob",
-        "allValue": null,
+        "allValue": "",
         "current": {},
         "datasource": "${DS_PROMETHEUS_111}",
-        "definition": "",
+        "definition": "label_values(node_exporter_build_info{env=~'$env'},name)",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "主机名",
-        "multi": false,
+        "multi": true,
         "multiFormat": "regex values",
         "name": "name",
         "options": [],
-        "query": "label_values(node_exporter_build_info{env='$env'},name)",
-        "refresh": 1,
+        "query": "label_values(node_exporter_build_info{env=~'$env'},name)",
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
+        "tagValuesQuery": "/.*/",
         "tags": [],
         "tagsQuery": "",
         "type": "query",
@@ -2344,16 +2375,16 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_PROMETHEUS_111}",
-        "definition": "",
+        "definition": "label_values(node_exporter_build_info{name=~'$name'},instance)",
         "hide": 0,
-        "includeAll": false,
-        "label": "节点",
-        "multi": false,
+        "includeAll": true,
+        "label": "IP( 主机名多选时,该项请选ALL)",
+        "multi": true,
         "multiFormat": "regex values",
         "name": "node",
         "options": [],
-        "query": "label_values(node_exporter_build_info{name='$name'},instance)",
-        "refresh": 1,
+        "query": "label_values(node_exporter_build_info{name=~'$name'},instance)",
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
@@ -2375,7 +2406,7 @@
         "name": "maxmount",
         "options": [],
         "query": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext4|xfs\"}) by (mountpoint))))",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "/.*\\\"(.*)\\\".*/",
         "skipUrlSync": false,
         "sort": 0,
@@ -2384,11 +2415,20 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "datasource": "prometheus_111",
+        "filters": [],
+        "hide": 0,
+        "label": "",
+        "name": "Filters",
+        "skipUrlSync": false,
+        "type": "adhoc"
       }
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -2418,7 +2458,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "1 Node Exporter 0.16 0.17 for Prometheus 监控展示看板",
+  "title": "1 Node Exporter 0.16--0.18 for Prometheus 监控展示看板",
   "uid": "9CWBz0bik",
-  "version": 44
+  "version": 60
 }
