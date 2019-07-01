@@ -3,4 +3,4 @@
 
 >https://github.com/martinlindhe/wmi_exporter/releases
 
-![](https://raw.githubusercontent.com/starsliao/Prometheus/wmi_exporter/master/wmi_exporter.png)
+![](https://github.com/starsliao/Prometheus/raw/master/wmi_exporter/wmi_exporter.png)
