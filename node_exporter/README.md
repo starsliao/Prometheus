@@ -1,14 +1,9 @@
-### Blackbox Exporter 0.14 for Prometheus 监控展示看板
->目前在使用的TCP，ICMP，HTTPS服务状态监控 Prometheus Blackbox Exporter，在一个看板里面展示，做了展示效果的优化，支持多服务同时展示，需要使用的可以参考下，记得根据自己的实际情况修改下变量。
-### 记得安装饼图插件
-![](https://raw.githubusercontent.com/starsliao/Prometheus/master/blackbox-exporter.png)
----
-## Node Exporter 0.16 0.17 0.18 for Prometheus 监控展示看板
+## Node Exporter 0.16+ for Prometheus 监控展示看板
 #### Grafana v5.4.2 +  node_exporter 0.16 、node_exporter 0.17 、node_exporter 0.18 测试使用正常。
 使用 Node Exporter v0.18，以实用为主，精简优化重要指标进行展示。  
 包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
 ##### 截图
-![](https://raw.githubusercontent.com/starsliao/Prometheus/master/screenshot.jpg)
+![](https://raw.githubusercontent.com/starsliao/Prometheus/node_exporter/master/Node_Exporter.png)
 ##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
 ![](https://raw.githubusercontent.com/starsliao/Prometheus/master/qr.png)
 #### 注意事项：
@@ -45,6 +40,9 @@ label_values(node_exporter_build_info,env)
 label_values(node_exporter_build_info{env='$env'},name)
 ```
 ### 【update】：
+##### 2019/7/1
+1. 增加了磁盘分区的使用率曲线图。
+2. 优化了数据展示效果。
 ##### 2019/5/20
 1. 增加了服务器列表多选支持，曲线图可以展示多台服务器的数据。
 2. 优化了变量的展示效果。

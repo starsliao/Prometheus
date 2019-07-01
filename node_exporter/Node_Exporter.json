@@ -66,12 +66,12 @@
       }
     ]
   },
-  "description": "使用 Node Exporter v0.16--0.18，精简优化重要指标展示。包含：CPU 内存 磁盘 IO 网络 温度等监控指标。https://github.com/starsliao/Prometheus",
+  "description": "使用 Node Exporter v0.16+，精简优化重要指标展示。包含：CPU 内存 磁盘 IO 网络 温度等监控指标。https://github.com/starsliao/Prometheus",
   "editable": true,
   "gnetId": 8919,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1558344525349,
+  "iteration": 1561954753319,
   "links": [
     {
       "icon": "external link",
@@ -139,7 +139,7 @@
         "h": 5,
         "w": 2,
         "x": 0,
-        "y": 2
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 15,
@@ -226,7 +226,7 @@
         "h": 2,
         "w": 2,
         "x": 2,
-        "y": 2
+        "y": 1
       },
       "id": 14,
       "interval": null,
@@ -312,7 +312,7 @@
         "h": 5,
         "w": 3,
         "x": 4,
-        "y": 2
+        "y": 1
       },
       "id": 167,
       "interval": null,
@@ -399,7 +399,7 @@
         "h": 5,
         "w": 3,
         "x": 7,
-        "y": 2
+        "y": 1
       },
       "id": 20,
       "interval": null,
@@ -486,7 +486,7 @@
         "h": 5,
         "w": 3,
         "x": 10,
-        "y": 2
+        "y": 1
       },
       "hideTimeOverride": false,
       "id": 172,
@@ -569,7 +569,7 @@
         "h": 5,
         "w": 3,
         "x": 13,
-        "y": 2
+        "y": 1
       },
       "hideTimeOverride": false,
       "id": 16,
@@ -650,7 +650,7 @@
         "h": 5,
         "w": 4,
         "x": 16,
-        "y": 2
+        "y": 1
       },
       "id": 166,
       "interval": null,
@@ -736,7 +736,7 @@
         "h": 5,
         "w": 4,
         "x": 20,
-        "y": 2
+        "y": 1
       },
       "id": 154,
       "interval": null,
@@ -823,7 +823,7 @@
         "h": 3,
         "w": 2,
         "x": 2,
-        "y": 4
+        "y": 3
       },
       "id": 75,
       "interval": null,
@@ -903,7 +903,7 @@
         "h": 6,
         "w": 11,
         "x": 0,
-        "y": 7
+        "y": 6
       },
       "height": "300",
       "id": 13,
@@ -1026,7 +1026,7 @@
         "h": 6,
         "w": 5,
         "x": 11,
-        "y": 7
+        "y": 6
       },
       "hideTimeOverride": false,
       "id": 171,
@@ -1068,7 +1068,7 @@
         "h": 6,
         "w": 8,
         "x": 16,
-        "y": 7
+        "y": 6
       },
       "id": 164,
       "links": [],
@@ -1279,7 +1279,7 @@
         "h": 7,
         "w": 16,
         "x": 0,
-        "y": 13
+        "y": 12
       },
       "id": 7,
       "legend": {
@@ -1384,7 +1384,7 @@
           "format": "percentunit",
           "label": "",
           "logBase": 1,
-          "max": null,
+          "max": "1",
           "min": null,
           "show": true
         },
@@ -1422,7 +1422,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 13
+        "y": 12
       },
       "height": "300",
       "id": 156,
@@ -1569,9 +1569,9 @@
       "fill": 2,
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 6,
         "x": 0,
-        "y": 20
+        "y": 19
       },
       "height": "300",
       "id": 161,
@@ -1690,9 +1690,9 @@
       "fill": 2,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 20
+        "w": 6,
+        "x": 6,
+        "y": 19
       },
       "height": "300",
       "id": 168,
@@ -1799,9 +1799,9 @@
       "fill": 3,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 20
+        "w": 6,
+        "x": 12,
+        "y": 19
       },
       "height": "300",
       "id": 160,
@@ -1917,13 +1917,101 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 19
+      },
+      "id": 174,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "1-(node_filesystem_free_bytes{instance=~'$node',fstype=~\"ext4|xfs\"} / node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext4|xfs\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}：{{mountpoint}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "分时磁盘使用率",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": null,
+          "logBase": 1,
+          "max": "1",
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": "${DS_PROMETHEUS_111}",
       "fill": 1,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 28
+        "y": 27
       },
       "height": "300",
       "id": 157,
@@ -2032,7 +2120,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 28
+        "y": 27
       },
       "height": "300",
       "id": 158,
@@ -2160,7 +2248,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 36
+        "y": 35
       },
       "id": 169,
       "legend": {
@@ -2428,7 +2516,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {
@@ -2458,7 +2546,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "1 Node Exporter 0.16--0.18 for Prometheus 监控展示看板",
+  "title": "1 Node Exporter 0.16+ for Prometheus 监控展示看板",
   "uid": "9CWBz0bik",
-  "version": 60
+  "version": 65
 }
