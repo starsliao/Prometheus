@@ -1,45 +1,31 @@
-## Node Exporter 0.16+ for Prometheus 监控展示看板
-#### Grafana v6.2.5 +  node_exporter 0.16 、node_exporter 0.17 、node_exporter 0.18 测试使用正常。
-使用 Node Exporter v0.18，以实用为主，精简优化重要指标进行展示。  
-包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
+###  Grafana v6.4.2 +  node_exporter 0.18.1测试使用正常。
+
+该看板以实用为主，精简优化重要指标进行展示，支持 Node Exporter v0.16及以上的版本。包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
 ##### 截图
-![](https://github.com/starsliao/Prometheus/raw/master/node_exporter/Node_Exporter.png)
+![](https://starsl.cn/static/img/ss.png)
 ##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
-![](https://raw.githubusercontent.com/starsliao/Prometheus/master/qr.png)
+![](https://starsl.cn/static/img/qr.png)
 #### 注意事项：
-##### 需要安装饼图的插件：
-```
-grafana-cli plugins install grafana-piechart-panel
-# 请确保安装后能正常添加饼图。
-```
-
-#### 请根据实际情况在grafana该面板的设置中配置好变量后使用：
-
-- **必须：`$node`取值node_exporter的`instance`，IP+端口格式。该看板大部分查询关联了这个变量，请确保该变量有效**：
-  - 注意：在Prometheus中使用`count(node_exporter_build_info) by(instance,version)`查询各node的instance格式和版本。
-```
-跟$name关联查询：
-label_values(node_exporter_build_info{name='$name'},instance)
-
-如果您无法获取$name,可修改成：
-label_values(node_exporter_build_info,instance)
-```
 ---
-- 重要：`$maxmount`用于根据`$node`来查询当前主机的最大分区挂载点。
-```
-query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instance=~'$node',fstype=~"ext4|xfs"}) by (mountpoint))))
-```
+#### 导入看板后，请根据实际情况在看板右上角点击`Dashboard settings`--`Variables`设置好变量：
+**默认已经设置并关联好`job`，`hostname`，`node`这3个变量。**（name，env变量是自定义的标签，已隐藏。大家可根据需要自行增加。）
+- **`$node`取值node_exporter的`instance`，`IP:端口`格式。大部分查询关联了这个变量，请确保该变量有效**
+- **`$maxmount`用来查询当前主机的最大分区，默认只获取ext4和xfs类型的分区。**
 ---
-- 可选：`$env`自定义的各主机环境：
-```
-label_values(node_exporter_build_info,env)
-```
----
-- 可选：`$name`自定义的主机名称。（跟`$env`关联）：
-```
-label_values(node_exporter_build_info{env='$env'},name)
-```
-### 【update】：
+### 同性交友
+
+[https://github.com/starsliao/Prometheus](https://github.com/starsliao/Prometheus)
+
+## 【update】：
+
+##### 2019/10/30
+
+1. 取消了需要手动安装的饼图，把原来磁盘信息的饼图整合到了磁盘表格信息中。
+2. 增加了一个Bar Gauge来实时展示cpu内存等信息。
+3. 增加了打开上下文切换与打开文件数的曲线图。
+4. 把磁盘监控与cpu使用率的图分开。
+5. 对整个看板的大部分图表做了展示效果的调整与优化，加强实用性与兼容性。
+6. 修复了同时展示多个服务器部分图表报错的问题。
 ##### 2019/7/1
 1. 增加了磁盘分区的使用率曲线图。
 2. 优化了数据展示效果。
@@ -51,7 +37,7 @@ label_values(node_exporter_build_info{env='$env'},name)
 ##### 2019/1/9
 1. 修复了一个展示内存使用量不准确的bug。
 2. 增加了更新node_exporter和仪表板的外链。
-3. Grafana v5.4.2 + node_exporter 0.16 、node_exporter 0.17 测试使用正常。
+3. Grafana v5.4.2 + node_exporter 0.16 、node_exporter 0.17 、node_exporter 0.18 测试使用正常。
 ##### 11/16
 1. 增加了变量的说明。
 2. 优化了新安装看板后的展示速度。 
