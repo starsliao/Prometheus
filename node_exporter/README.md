@@ -1,51 +1,10 @@
-###  Grafana v6.4.2 +  node_exporter 0.18.1测试使用正常。
+### Grafana v6.4.2 + node_exporter 0.18.1 test pass
+### The dashboard is quite practical, to optimize the main metrics for display, and supporting Node Exporter v0.16 and above.Includes: CPU,memory,disk I/O, network traffic, temperature and other monitoring metrics.
 
-该看板以实用为主，精简优化重要指标进行展示，支持 Node Exporter v0.16及以上的版本。包含：CPU 内存 磁盘 IO 网络 流量 温度等监控指标。  
+### 中文版：[https://grafana.com/grafana/dashboards/8919](https://grafana.com/grafana/dashboards/8919)
+### English Version：[https://grafana.com/grafana/dashboards/11074](https://grafana.com/grafana/dashboards/11074)
+
 ##### 截图
 ![](https://starsl.cn/static/img/ss.png)
 ##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
 ![](https://starsl.cn/static/img/qr.png)
-#### 注意事项：
----
-#### 导入看板后，请根据实际情况在看板右上角点击`Dashboard settings`--`Variables`设置好变量：
-**默认已经设置并关联好`job`，`hostname`，`node`这3个变量。**（name，env变量是自定义的标签，已隐藏。大家可根据需要自行增加。）
-- **`$node`取值node_exporter的`instance`，`IP:端口`格式。大部分查询关联了这个变量，请确保该变量有效**
-- **`$maxmount`用来查询当前主机的最大分区，默认只获取ext4和xfs类型的分区。**
----
-### 同性交友
-
-[https://github.com/starsliao/Prometheus](https://github.com/starsliao/Prometheus)
-
-## 【update】：
-
-##### 2019/10/30
-
-1. 取消了需要手动安装的饼图，把原来磁盘信息的饼图整合到了磁盘表格信息中。
-2. 增加了一个Bar Gauge来实时展示cpu内存等信息。
-3. 增加了打开上下文切换与打开文件数的曲线图。
-4. 把磁盘监控与cpu使用率的图分开。
-5. 对整个看板的大部分图表做了展示效果的调整与优化，加强实用性与兼容性。
-6. 修复了同时展示多个服务器部分图表报错的问题。
-##### 2019/7/1
-1. 增加了磁盘分区的使用率曲线图。
-2. 优化了数据展示效果。
-3. 使用Grafana 6.2.5 测试使用正常。
-##### 2019/5/20
-1. 增加了服务器列表多选支持，曲线图可以展示多台服务器的数据。
-2. 优化了变量的展示效果。
-3. 优化了部分监控指标的描述说明，点击各图表左上角的“i”即可查看。
-##### 2019/1/9
-1. 修复了一个展示内存使用量不准确的bug。
-2. 增加了更新node_exporter和仪表板的外链。
-3. Grafana v5.4.2 + node_exporter 0.16 、node_exporter 0.17 、node_exporter 0.18 测试使用正常。
-##### 11/16
-1. 增加了变量的说明。
-2. 优化了新安装看板后的展示速度。 
-##### 11/15  
-1. 增加各环境对服务器分组。
-2. 增加饼图，磁盘总空间。
-3. 增加当前打开文件描述符。
-4. 增加部分监控指标的描述。
-5. 优化部分指标的显示结果。
-##### 11/13  
-1. 增加磁盘每秒的I/O操作耗费时间占比图形。  
