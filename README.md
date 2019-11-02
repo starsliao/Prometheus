@@ -1,7 +1,7 @@
 # Prometheus
-#### 1 Node Exporter 0.16 + for Prometheus 监控展示看板
-#### 2 Blackbox Exporter 0.14 for Prometheus 监控展示看板
-#### 3 wmi_exporter 0.7.0+ for Prometheus 监控展示看板（windows监控）
+#### 1 Node Exporter for Prometheus Dashboard
+#### 2 Blackbox Exporter 0.14 for Prometheus Dashboard
+#### 3 wmi_exporter 0.7.0+ for Prometheus Dashboard（windows）
 
 #### 请进入相应目录查看说明与截图
 
