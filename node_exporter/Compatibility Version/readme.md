@@ -1,5 +1,5 @@
 ### Compatibility Release Notes:
-If you post the dashboard, you get an error:
+If you import the latest dashboard, you get an error:
 ```
 Failed create dashboard model
 Cannot read property 'Symbol(Symbol.iterator)' of undefined
