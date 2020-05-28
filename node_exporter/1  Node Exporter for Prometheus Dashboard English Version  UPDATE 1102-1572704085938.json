@@ -2121,7 +2121,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_hwmon_temp_celsius{instance=~'$node'}",
+          "expr": "node_hwmon_temp_celsius{instance=~'$node'} or node_thermal_zone_temp{instance=~'$node'}",
           "format": "time_series",
           "intervalFactor": 10,
           "legendFormat": "{{instance}}_{{chip}}_{{sensor}}",
