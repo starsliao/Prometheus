@@ -1,4 +1,5 @@
 ### Support Grafana v6.4.2 + node_exporter 0.18.1
+### Support Grafana v7.0.1 + node_exporter 0.18.1
 ### The dashboard is quite practical, to optimize the main metrics for display, and supporting Node Exporter v0.16 and above.Includes: CPU,memory,disk I/O, network traffic, temperature and other monitoring metrics.
 
 ### 中文版：[https://grafana.com/grafana/dashboards/8919](https://grafana.com/grafana/dashboards/8919)
