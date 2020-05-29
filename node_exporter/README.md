@@ -6,6 +6,7 @@
 ### English Version：[https://grafana.com/grafana/dashboards/11074](https://grafana.com/grafana/dashboards/11074)
 
 ##### 截图
-![](https://starsl.cn/static/img/ss.png)
+![](https://github.com/starsliao/Prometheus/blob/master/node_exporter/sa.png)
+![](https://github.com/starsliao/Prometheus/blob/master/node_exporter/s1.png)
 ##### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
-![](https://starsl.cn/static/img/qr.png)
+![](https://github.com/starsliao/Prometheus/blob/master/qr.jpg)
