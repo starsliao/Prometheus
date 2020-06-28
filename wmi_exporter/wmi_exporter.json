@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "6.2.5"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -48,12 +12,12 @@
       }
     ]
   },
-  "description": "General stats dashboard with node selector, uses metrics from wmi_exporter",
+  "description": "帮朋友做的Windows的Prometheus监控看板展示，使用windows_exporter 0.7.0+，需要的同学可以试试。",
   "editable": true,
-  "gnetId": 2129,
+  "gnetId": 10467,
   "graphTooltip": 1,
-  "id": null,
-  "iteration": 1561952991107,
+  "id": 3,
+  "iteration": 1593330736223,
   "links": [],
   "panels": [
     {
@@ -67,8 +31,15 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
       "decimals": 0,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "s",
       "gauge": {
         "maxValue": 100,
@@ -100,7 +71,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -123,7 +93,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "wmi_os_time{instance=~\"$server\"} - wmi_system_system_up_time{instance=~\"$server\"}",
+          "expr": "windows_os_time{instance=~\"$server\"} - windows_system_system_up_time{instance=~\"$server\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -156,7 +126,13 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -188,7 +164,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "%",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -209,7 +184,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "100 - (avg by (instance) (irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$server\"}[1m])) * 100)",
+          "expr": "100 - (avg by (instance) (irate(windows_cpu_time_total{mode=\"idle\", instance=~\"$server\"}[1m])) * 100)",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -238,6 +213,13 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -269,7 +251,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "%",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -290,7 +271,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(wmi_cs_physical_memory_bytes{instance=~\"$server\"} - wmi_os_physical_memory_free_bytes{instance=~\"$server\"}) / wmi_cs_physical_memory_bytes{instance=~\"$server\"} * 100",
+          "expr": "(windows_cs_physical_memory_bytes{instance=~\"$server\"} - windows_os_physical_memory_free_bytes{instance=~\"$server\"}) / windows_cs_physical_memory_bytes{instance=~\"$server\"} * 100",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -318,6 +299,13 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -349,7 +337,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -370,7 +357,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(sum(wmi_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$server\"}) by (instance) - sum(wmi_logical_disk_free_bytes{volume!~\"Harddisk.*\", instance=\"$server\"}) by (instance)) / sum(wmi_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$server\"}) by (instance) * 100",
+          "expr": "(sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$server\"}) by (instance) - sum(windows_logical_disk_free_bytes{volume!~\"Harddisk.*\", instance=\"$server\"}) by (instance)) / sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$server\"}) by (instance) * 100",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -398,7 +385,14 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bps",
       "gauge": {
         "maxValue": 100000000,
@@ -430,7 +424,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -451,7 +444,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(sum(irate(wmi_net_bytes_total{instance=\"$server\"}[1m])) > 1)* 8",
+          "expr": "(sum(irate(windows_net_bytes_total{instance=\"$server\"}[1m])) > 1)* 8",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -459,7 +452,7 @@
           "refId": "A"
         },
         {
-          "expr": "  sum(irate(wmi_net_bytes_total{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[5m])) / sum(wmi_net_current_bandwidth{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}/8) * 100",
+          "expr": "  sum(irate(windows_net_bytes_total{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[5m])) / sum(windows_net_current_bandwidth{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}/8) * 100",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 1,
@@ -484,14 +477,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 9,
         "x": 15,
         "y": 0
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 14,
       "legend": {
@@ -509,7 +510,9 @@
       "linewidth": 3,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -523,7 +526,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "wmi_cs_physical_memory_bytes{instance=~\"$server\"}",
+          "expr": "windows_cs_physical_memory_bytes{instance=~\"$server\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -550,7 +553,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "wmi_os_physical_memory_free_bytes{instance=~\"$server\"}",
+          "expr": "windows_os_physical_memory_free_bytes{instance=~\"$server\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -577,7 +580,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "wmi_os_virtual_memory_bytes{instance=~\"$server\"}",
+          "expr": "windows_os_virtual_memory_bytes{instance=~\"$server\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -601,7 +604,7 @@
           "step": 5
         },
         {
-          "expr": "wmi_os_virtual_memory_free_bytes{instance=~\"$server\"}",
+          "expr": "windows_os_virtual_memory_free_bytes{instance=~\"$server\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Free virtual memory",
@@ -660,9 +663,15 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -694,7 +703,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -717,7 +725,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "wmi_cs_logical_processors{instance=~\"$server\"}",
+          "expr": "windows_cs_logical_processors{instance=~\"$server\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -750,9 +758,15 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -784,7 +798,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -807,7 +820,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "wmi_cs_physical_memory_bytes{instance=~\"$server\"}",
+          "expr": "windows_cs_physical_memory_bytes{instance=~\"$server\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -837,14 +850,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 6
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 4,
       "legend": {
@@ -862,7 +883,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -876,7 +899,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "sum by (mode) (rate(wmi_cpu_time_total{instance=~\"$server\"}[5m]))",
+          "expr": "sum by (mode) (rate(windows_cpu_time_total{instance=~\"$server\"}[5m]))",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -946,14 +969,23 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 12,
         "y": 6
       },
+      "hiddenSeries": false,
       "id": 25,
       "legend": {
         "alignAsTable": true,
@@ -972,7 +1004,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "paceLength": 10,
       "percentage": false,
       "pointradius": 5,
@@ -984,7 +1018,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(avg without (cpu) (sum(irate(wmi_cpu_time_total{instance=\"$server\",mode!=\"idle\"}[5m])) by (mode)) / 16)* 100",
+          "expr": "(avg without (cpu) (sum(irate(windows_cpu_time_total{instance=\"$server\",mode!=\"idle\"}[5m])) by (mode)) / 16)* 100",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{mode}}",
@@ -1037,14 +1071,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 15
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 11,
       "legend": {
@@ -1062,7 +1104,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1076,7 +1120,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "rate(wmi_net_bytes_sent_total{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) >0",
+          "expr": "rate(windows_net_bytes_sent_total{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) >0",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1104,7 +1148,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "- rate(wmi_net_bytes_received_total{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) <0",
+          "expr": "- rate(windows_net_bytes_received_total{instance=~\"$server\",nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) <0",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1174,14 +1218,23 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
       "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 7,
         "x": 12,
         "y": 15
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 29,
       "legend": {
@@ -1199,7 +1252,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "paceLength": 10,
       "percentage": false,
       "pointradius": 5,
@@ -1211,7 +1266,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(increase(wmi_net_bytes_received_total{instance=\"$server\"}[1h])) by (instance)",
+          "expr": "sum(increase(windows_net_bytes_received_total{instance=\"$server\"}[1h])) by (instance)",
           "format": "time_series",
           "interval": "1h",
           "intervalFactor": 1,
@@ -1219,7 +1274,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum(increase(wmi_net_bytes_sent_total{instance=\"$server\"}[1h])) by (instance)",
+          "expr": "sum(increase(windows_net_bytes_sent_total{instance=\"$server\"}[1h])) by (instance)",
           "format": "time_series",
           "interval": "1h",
           "intervalFactor": 1,
@@ -1273,14 +1328,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 5,
         "x": 19,
         "y": 15
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 10,
       "legend": {
@@ -1298,7 +1361,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1312,7 +1377,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "irate(wmi_net_packets_outbound_discarded{instance=~\"$server\", nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) + irate(wmi_net_packets_outbound_errors{instance=~\"$server\"}[$interval])",
+          "expr": "irate(windows_net_packets_outbound_discarded{instance=~\"$server\", nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) + irate(windows_net_packets_outbound_errors{instance=~\"$server\"}[$interval])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1339,7 +1404,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "irate(wmi_net_packets_received_discarded{instance=~\"$server\", nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) + irate(wmi_net_packets_received_errors{instance=~\"$server\"}[$interval])",
+          "expr": "irate(windows_net_packets_received_discarded{instance=~\"$server\", nic=\"Broadcom_NetXtreme_Gigabit_Ethernet\"}[$interval]) + irate(windows_net_packets_received_errors{instance=~\"$server\"}[$interval])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1409,14 +1474,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 14,
         "x": 0,
         "y": 24
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 8,
       "legend": {
@@ -1436,7 +1509,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1450,7 +1525,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "irate(wmi_logical_disk_write_bytes_total{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}[30s])",
+          "expr": "irate(windows_logical_disk_write_bytes_total{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}[30s])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1477,7 +1552,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "- irate(wmi_logical_disk_read_bytes_total{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}[30s])",
+          "expr": "- irate(windows_logical_disk_read_bytes_total{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}[30s])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1547,14 +1622,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 5,
         "x": 14,
         "y": 24
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 15,
       "legend": {
@@ -1572,7 +1655,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1586,7 +1671,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "wmi_logical_disk_free_bytes{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}",
+          "expr": "windows_logical_disk_free_bytes{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1656,14 +1741,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 5,
         "x": 19,
         "y": 24
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 9,
       "legend": {
@@ -1681,7 +1774,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1695,7 +1790,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "rate(wmi_logical_disk_split_ios_total{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}[30s])",
+          "expr": "rate(windows_logical_disk_split_ios_total{instance=~\"$server\", volume !~\"HarddiskVolume.+\"}[30s])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1765,13 +1860,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 6,
         "x": 0,
         "y": 32
       },
+      "hiddenSeries": false,
       "id": 27,
       "legend": {
         "avg": false,
@@ -1786,7 +1890,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "paceLength": 10,
       "percentage": false,
       "pointradius": 5,
@@ -1798,7 +1904,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "wmi_os_processes",
+          "expr": "windows_os_processes",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 1,
@@ -1855,14 +1961,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 10,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 8,
         "x": 6,
         "y": 32
       },
+      "hiddenSeries": false,
       "id": 7,
       "legend": {
         "alignAsTable": true,
@@ -1881,7 +1995,9 @@
       "linewidth": 0,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1895,7 +2011,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "sum(wmi_service_state{instance=~\"$server\"}) by (state)",
+          "expr": "sum(windows_service_state{instance=~\"$server\"}) by (state)",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1963,14 +2079,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 5,
         "x": 14,
         "y": 32
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 12,
       "legend": {
@@ -1988,7 +2112,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2002,7 +2128,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "wmi_system_threads{instance=~\"$server\"}",
+          "expr": "windows_system_threads{instance=~\"$server\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -2072,14 +2198,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 5,
         "x": 19,
         "y": 32
       },
+      "hiddenSeries": false,
       "hideTimeOverride": false,
       "id": 13,
       "legend": {
@@ -2097,7 +2231,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2111,7 +2247,7 @@
           "application": {
             "filter": ""
           },
-          "expr": "rate(wmi_system_exception_dispatches_total{instance=~\"$server\"}[$interval])",
+          "expr": "rate(windows_system_exception_dispatches_total{instance=~\"$server\"}[$interval])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -2177,12 +2313,12 @@
       }
     }
   ],
-  "refresh": "10s",
-  "schemaVersion": 18,
+  "refresh": "5s",
+  "schemaVersion": 25,
   "style": "dark",
   "tags": [
     "windows",
-    "wmi_exporter",
+    "windows_exporter",
     "prometheus"
   ],
   "templating": {
@@ -2192,6 +2328,7 @@
         "auto_count": 500,
         "auto_min": "30s",
         "current": {
+          "selected": false,
           "text": "60s",
           "value": "60s"
         },
@@ -2212,16 +2349,20 @@
       },
       {
         "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
-        "definition": "",
+        "current": {
+          "selected": false,
+          "text": "192.168.2.69:9182",
+          "value": "192.168.2.69:9182"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(windows_system_system_up_time, instance)",
         "hide": 0,
         "includeAll": false,
         "label": "Server",
         "multi": false,
         "name": "server",
         "options": [],
-        "query": "label_values(wmi_system_system_up_time, instance)",
+        "query": "label_values(windows_system_system_up_time, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2235,12 +2376,11 @@
     ]
   },
   "time": {
-    "from": "now-30d",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
-      "5s",
       "10s",
       "30s",
       "1m",
@@ -2264,7 +2404,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Windows Node",
+  "title": "3 windows_exporter 0.7.0+ for Prometheus 监控展示看板（windows监控）",
   "uid": "7UlnHoGZz",
-  "version": 20
+  "version": 1
 }
