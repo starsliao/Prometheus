@@ -10,3 +10,12 @@ kubectl apply -f .
 
 #### Kubernetes for Prometheus Dashboard 使用：
 https://grafana.com/grafana/dashboards/13105
+
+#### 整体资源总览
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/kubernetes/screenshot/k0.png)
+#### 微服务资源明细
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/kubernetes/screenshot/k1.png)
+#### Pod资源明细
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/kubernetes/screenshot/k2.png)
+#### K8S网络带宽
+![](https://raw.githubusercontent.com/starsliao/Prometheus/master/kubernetes/screenshot/k3.png)
