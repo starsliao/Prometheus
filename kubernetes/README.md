@@ -8,5 +8,5 @@ cd kube-state-metrics
 kubectl apply -f .
 ```
 
-#### Kubernetes for Prometheus Dashboard 使用
+#### Kubernetes for Prometheus Dashboard 使用：
 https://grafana.com/grafana/dashboards/13105
