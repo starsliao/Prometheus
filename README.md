@@ -1,7 +1,8 @@
 # Prometheus
-### [1 Node Exporter for Prometheus Dashboard 20201003](https://github.com/starsliao/Prometheus/tree/master/node_exporter)
-### [2 Blackbox Exporter 0.14 for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/blackbox_exporter)
-### [3 windows_exporter for Prometheus Dashboard CN 20200811](https://github.com/starsliao/Prometheus/tree/master/windows_exporter)
+### [1 Kubernetes for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/kubernetes)
+### [2 Node Exporter for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/node_exporter)
+### [3 Blackbox Exporter 0.14 for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/blackbox_exporter)
+### [4 windows_exporter for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/windows_exporter)
 
 #### 请进入相应目录查看说明与截图
 
