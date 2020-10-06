@@ -41,5 +41,17 @@ vi prometheus.yml
 yum install python3-devel
 pip3 install psutil prometheus_client pyyaml
 mkdir /opt/monit
-wegt 
+wegt https://raw.githubusercontent.com/starsliao/Prometheus/master/linux_proc_monit/linux_proc.py
 ```
+3. 增加需要监控的进程
+```
+# 获取进程PID
+ps -ef|grep {进程名}
+
+# 增加进程到监控列表（执行后会把进程信息采集到监控进程的列表文件linux_proc.yaml）
+/opt/monit/linux_proc.py {需要监控进程的PID}
+```
+  - linux_proc.yaml文件说明
+  ```
+  
+
