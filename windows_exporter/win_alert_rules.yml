@@ -1,0 +1,38 @@
+- name: Windows
+  rules:
+  - alert: win_CPU使用率
+    expr: 100 - (avg by (instance,A02_iname,intip,A05_ienv,A01_iaccount) (irate(wmi_cpu_time_total{mode="idle"}[2m])) * 100) > 80
+    for: 2m
+    labels:
+      alertype: win
+      severity: warning
+    annotations:
+      description: "{{ $labels.A02_iname }}_{{$labels.intip}}：CPU使用率达到{{ $value | humanize }}%\n> {{ $labels.A01_iaccount}}-{{ $labels.A05_ienv }}"
+
+  - alert: win_内存使用率
+    expr: 100.0 - 100 * wmi_os_physical_memory_free_bytes / wmi_cs_physical_memory_bytes > 85
+    for: 2m
+    labels:
+      alertype: win
+      severity: warning
+    annotations:
+      description: "{{ $labels.A02_iname }}_{{$labels.intip}}：内存使用率达到{{ $value | humanize }}%\n> {{ $labels.A01_iaccount}}-{{ $labels.A05_ienv }}"
+
+  - alert: win_磁盘使用率
+    expr: 100.0 - 100 * ((wmi_logical_disk_free_bytes{} / 1024 / 1024 ) / (wmi_logical_disk_size_bytes{}  / 1024 / 1024)) > 80
+    for: 2m
+    labels:
+      alertype: win
+      severity: warning
+    annotations:
+      description: "{{ $labels.A02_iname }}_{{$labels.intip}}_{{$labels.volume}}：使用率达到{{ $value | humanize }}%\n> {{ $labels.A01_iaccount}}-{{ $labels.A05_ienv }}"
+
+  - alert: win_采集器状态
+    expr: wmi_exporter_collector_success == 0
+    for: 2m
+    labels:
+      alertype: win
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}_{{$labels.intip}}_{{ $labels.collector }}：异常\n> {{ $labels.A01_iaccount}}-{{ $labels.A05_ienv }}"
+
