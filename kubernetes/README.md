@@ -11,6 +11,9 @@ kubectl apply -f .
 ## Kubernetes for Prometheus Dashboard 使用：
 [https://grafana.com/grafana/dashboards/13105](https://grafana.com/grafana/dashboards/13105)
 ---
+新增数据源变量`origin_prometheus`，取自于Prometheus的外部系统标签：`external_labels`，可用于支持多个Prometheus接入VictoriaMetrics或Thanos等第三方存储使用`remote_write`方式的场景。(默认取值空，指标中无该标签不影响使用)  
+**`VictoriaMetrics`请使用v1.42.0及以上版本，修复了grafana表格展示的问题。**
+---
 ### 更新说明：
 **v20201208**
 1. 调整了资源总览页的展示效果。
