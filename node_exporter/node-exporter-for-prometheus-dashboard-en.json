@@ -2251,7 +2251,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"}",
+          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"} or node_memory_total_bytes{instance=~\"$node\"} ",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -2262,7 +2262,7 @@
           "step": 4
         },
         {
-          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\"} - node_memory_MemAvailable_bytes{instance=~\"$node\"}",
+          "expr": "(node_memory_MemTotal_bytes{instance=~\"$node\"} or node_memory_total_bytes{instance=~\"$node\"}) - (node_memory_MemAvailable_bytes{instance=~\"$node\"} or node_memory_free_bytes{instance=~\"$node\"})",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2272,7 +2272,7 @@
           "step": 4
         },
         {
-          "expr": "node_memory_MemAvailable_bytes{instance=~\"$node\"}",
+          "expr": "node_memory_MemAvailable_bytes{instance=~\"$node\"} or node_memory_free_bytes{instance=~\"$node\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2292,7 +2292,7 @@
           "step": 4
         },
         {
-          "expr": "node_memory_MemFree_bytes{instance=~\"$node\"}",
+          "expr": "node_memory_MemFree_bytes{instance=~\"$node\"} or node_memory_free_bytes{instance=~\"$node\"}",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 1,
@@ -2317,7 +2317,7 @@
           "refId": "G"
         },
         {
-          "expr": "(1 - (node_memory_MemAvailable_bytes{instance=~\"$node\"} / (node_memory_MemTotal_bytes{instance=~\"$node\"})))* 100",
+          "expr": "(1 - (node_memory_MemAvailable_bytes{instance=~\"$node\"} or node_memory_free_bytes{instance=~\"$node\"} / (node_memory_MemTotal_bytes{instance=~\"$node\"} or node_memory_total_bytes{instance=~\"$node\"})))* 100",
           "format": "time_series",
           "hide": false,
           "interval": "30m",
