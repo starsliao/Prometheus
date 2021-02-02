@@ -61,7 +61,7 @@
       }
     ]
   },
-  "description": "【English version】Update 2020.10.10, add the overall resource overview! Support Grafana6&7,Support Node Exporter v0.16 and above.Optimize the main metrics display. Includes: CPU, memory, disk IO, network, temperature and other monitoring metrics。https://github.com/starsliao/Prometheus",
+  "description": "(English version) Update 2020.10.10, add the overall resource overview! Support Grafana6&7,Support Node Exporter v0.16 and above.Optimize the main metrics display. Includes: CPU, memory, disk IO, network, temperature and other monitoring metrics。https://github.com/starsliao/Prometheus",
   "editable": true,
   "gnetId": 11074,
   "graphTooltip": 0,
@@ -110,7 +110,7 @@
       },
       "id": 187,
       "panels": [],
-      "title": "Resource Overview (associated JOB)，Host：$show_hostname，Instance：$node",
+      "title": "Resource Overview (associated JOB), Host: $show_hostname, Instance: $node",
       "type": "row"
     },
     {
@@ -161,7 +161,7 @@
         },
         {
           "$$hashKey": "object:1601",
-          "alias": "IP（Link to details）",
+          "alias": "IP (Link to details)",
           "align": "auto",
           "colorMode": null,
           "colors": [
@@ -588,7 +588,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Server Resource Overview【JOB：$job，Total：$total】",
+      "title": "Server Resource Overview (JOB: $job, Total: $total)",
       "transform": "table",
       "type": "table-old"
     },
@@ -716,7 +716,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$job：Overall total 5m load & average CPU used%",
+      "title": "$job: Overall total 5m load & average CPU used%",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -871,7 +871,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$job：Overall total memory & average memory used%",
+      "title": "$job: Overall total memory & average memory used%",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -1016,7 +1016,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$job：Overall total disk & average disk used%",
+      "title": "$job: Overall total disk & average disk used%",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -1068,7 +1068,7 @@
       },
       "id": 189,
       "panels": [],
-      "title": "Resource Details：【$show_hostname】",
+      "title": "Resource Details: ($show_hostname)",
       "type": "row"
     },
     {
@@ -1465,7 +1465,7 @@
           "refId": "B"
         }
       ],
-      "title": "【$show_hostname】：Disk Space Used Basic(EXT?/XFS)",
+      "title": "($show_hostname): Disk Space Used Basic(EXT?/XFS)",
       "transform": "table",
       "type": "table-old"
     },
@@ -1665,7 +1665,7 @@
         {
           "$$hashKey": "object:2977",
           "format": "bytes",
-          "label": "transmit（-）/receive（+）",
+          "label": "transmit (-) /receive (+)",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -2476,7 +2476,7 @@
         {
           "$$hashKey": "object:3315",
           "format": "bps",
-          "label": "transmit（-）/receive（+）",
+          "label": "transmit (-) /receive (+)",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -2860,7 +2860,7 @@
           "expr": "node_filesystem_files_free{instance=~'$node',fstype=~\"ext.?|xfs\"} / node_filesystem_files{instance=~'$node',fstype=~\"ext.?|xfs\"}",
           "hide": true,
           "interval": "",
-          "legendFormat": "Inodes：{{instance}}：{{mountpoint}}",
+          "legendFormat": "Inodes: {{instance}}: {{mountpoint}}",
           "refId": "B"
         }
       ],
@@ -3008,7 +3008,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Disk IOps Completed（IOPS）",
+      "title": "Disk IOps Completed (IOPS)",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -3068,7 +3068,7 @@
       "dashes": false,
       "datasource": "${DS__VICTORIAMETRICS}",
       "decimals": null,
-      "description": "The time spent on I/O in the natural time of each second.（wall-clock time）",
+      "description": "The time spent on I/O in the natural time of each second. (wall-clock time)",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -3670,8 +3670,7 @@
   "style": "dark",
   "tags": [
     "Prometheus",
-    "node_exporter",
-    "StarsL.cn"
+    "node_exporter"
   ],
   "templating": {
     "list": [
