@@ -4,7 +4,7 @@
 ### 中文版：[https://grafana.com/grafana/dashboards/8919](https://grafana.com/grafana/dashboards/8919)
 ### English Version：[https://grafana.com/grafana/dashboards/11074](https://grafana.com/grafana/dashboards/11074)
 
-### 关注公众号【**全栈运维开发**】加入运维群交流，获取更多...
+### 关注公众号【**云原生 DevOps**】加入运维群交流，获取更多...
 ![](https://github.com/starsliao/Prometheus/blob/master/qr.jpg)
 
 ##### 截图
