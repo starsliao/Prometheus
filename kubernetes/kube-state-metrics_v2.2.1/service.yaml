@@ -5,7 +5,7 @@ metadata:
 #    prometheus.io/scrape: 'true'
   labels:
     app.kubernetes.io/name: kube-state-metrics
-    app.kubernetes.io/version: v1.9.7
+    app.kubernetes.io/version: v2.2.1
   name: kube-state-metrics
   namespace: ops-monit
 spec:
