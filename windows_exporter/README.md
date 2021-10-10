@@ -9,6 +9,5 @@
 ### 运维博客：[StarsL.cn](https://starsl.cn/)
 ### GitHub：[https://github.com/starsliao/Prometheus](https://github.com/starsliao/Prometheus)
 ### windows_exporter：[https://github.com/prometheus-community/windows_exporter](https://github.com/prometheus-community/windows_exporter)
-
-#### 关注公众号【**全栈运维开发 Python & Vue**】获取更多...
+### 关注公众号【**云原生DevOps**】加入运维群交流，获取更多...
 ![](https://github.com/starsliao/Prometheus/blob/master/qr.jpg)
