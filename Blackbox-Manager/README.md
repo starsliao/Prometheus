@@ -10,11 +10,11 @@
 
 ## 截图
 
-Blackbox Manager Web管理界面：
+### Blackbox Manager Web管理界面
+![0](https://raw.githubusercontent.com/starsliao/Prometheus/master/Blackbox-Manager/screenshot/0.png)
 
-![image-20220107022506345](D:\StarsLiao\Markdown\0.NEW\image-20220107022506345.png)
-
-![1 Blackbox Exporter 1](D:\StarsLiao\Markdown\0.NEW\1 Blackbox Exporter 1-16414945689081.png)![1 Blackbox Exporter 2](D:\StarsLiao\Markdown\0.NEW\1 Blackbox Exporter 2.png)
+### Blackbox Exporter Dashboard 截图
+![1](https://raw.githubusercontent.com/starsliao/Prometheus/master/Blackbox-Manager/screenshot/1.png)![2](https://raw.githubusercontent.com/starsliao/Prometheus/master/Blackbox-Manager/screenshot/2.png)
 
 ## 部署需求
 
