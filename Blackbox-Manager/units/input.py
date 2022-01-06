@@ -3,7 +3,7 @@ import requests,json
 consul_token = 'xxxxxxxxxx'
 consul_url = 'http://x.x.x.x:8500/v1'
 
-with open('bb.txt', 'r') as file:
+with open('instance.list', 'r') as file:
   lines = file.readlines()
   for line in lines:
     module,company,project,env,name,instance = line.split()
