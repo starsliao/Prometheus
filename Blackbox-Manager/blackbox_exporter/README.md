@@ -1,7 +1,10 @@
 ### Blackbox Exporter Dashboard
->目前在使用的TCP，ICMP，HTTPS服务状态监控 Prometheus Blackbox Exporter，在一个看板里面展示，做了展示效果的优化，支持多服务同时展示，需要使用的可以参考下，记得根据自己的实际情况修改下变量。
+- 支持Grafana 8，基于blackbox_exporter 0.19.0设计
+- 采用图表+曲线图方式展示TCP，ICMP，HTTPS的服务状态，各阶段请求延时，HTTPS证书信息等
+- 优化展示效果，支持监控目标的分组、分类级联展示，多服务同时对比展示。
 
-https://grafana.com/grafana/dashboards/9965
+导入ID：9965
+详细URL：https://grafana.com/grafana/dashboards/9965
 
 
-![](https://raw.githubusercontent.com/starsliao/Prometheus/master/Blackbox-Manager/blackbox_exporter/blackbox-exporter.png)
+![1](https://raw.githubusercontent.com/starsliao/Prometheus/master/Blackbox-Manager/screenshot/1.png)![2](https://raw.githubusercontent.com/starsliao/Prometheus/master/Blackbox-Manager/screenshot/2.png)
