@@ -1,5 +1,0 @@
-flask
-flask-restful
-flask-cors
-Flask-HTTPAuth
-requests
