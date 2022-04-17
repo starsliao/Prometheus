@@ -15,5 +15,5 @@
 ![](https://github.com/starsliao/Prometheus/blob/master/qr.jpg)
 
 ##### 截图
-![](https://github.com/starsliao/Prometheus/blob/master/node_exporter/sa.png)
-![](https://github.com/starsliao/Prometheus/blob/master/node_exporter/s1.png)
+![](https://github.com/starsliao/Prometheus/blob/master/node_exporter/node1.png)
+![](https://github.com/starsliao/Prometheus/blob/master/node_exporter/node2.png)
