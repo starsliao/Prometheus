@@ -18,3 +18,4 @@
 ![](https://raw.githubusercontent.com/starsliao/ConsulManager/main/screenshot/blackbox2.PNG)
 ![](https://raw.githubusercontent.com/starsliao/ConsulManager/main/screenshot/blackbox3.PNG)
 ![](https://raw.githubusercontent.com/starsliao/ConsulManager/main/screenshot/blackbox4.PNG)
+![](https://raw.githubusercontent.com/starsliao/ConsulManager/main/vue-consul/public/blackbox.png)
