@@ -3,9 +3,9 @@
 1. 部署Pushgateway并增加到Prometheus
 ```
 mkdir /opt/pushgateway/
-wget https://github.com/prometheus/pushgateway/releases/download/v1.3.0/pushgateway-1.3.0.linux-amd64.tar.gz -O /opt/pushgateway/pushgateway-1.3.0.linux-amd64.tar.gz
+wget https://github.com/prometheus/pushgateway/releases/download/v1.4.3/pushgateway-1.4.3.linux-amd64.tar.gz -O /opt/pushgateway/pushgateway-1.4.3.linux-amd64.tar.gz
 cd /opt/pushgateway/
-tar -zxvf pushgateway-1.3.0.linux-amd64.tar.gz
+tar -zxvf pushgateway-1.4.3.linux-amd64.tar.gz
 
 cat > /etc/systemd/system/pushgateway.service <<EOF
 [Unit]
