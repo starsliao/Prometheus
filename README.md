@@ -6,7 +6,7 @@
 - ### [应用场景2：如何优雅的使用Consul管理Blackbox站点监控](https://github.com/starsliao/ConsulManager/blob/main/docs/blackbox%E7%AB%99%E7%82%B9%E7%9B%91%E6%8E%A7.md)
 
 ---
-### [💖我的Grafana看板汇总](https://grafana.com/orgs/starsliao/dashboards)
+### 💖我的Grafana看板汇总[【查看】](https://grafana.com/orgs/starsliao/dashboards)
 ##### [1 Kubernetes for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/kubernetes)
 ##### [2 Node Exporter for Prometheus Dashboard](https://github.com/starsliao/Prometheus/tree/master/node_exporter)
 ##### [3 Blackbox Manager & Blackbox Exporter Dashboard](https://github.com/starsliao/Prometheus/tree/master/blackbox_exporter)
