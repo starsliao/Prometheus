@@ -1,8 +1,10 @@
 
-### 中文版：[https://grafana.com/grafana/dashboards/16098](https://grafana.com/grafana/dashboards/16098)
+### 基于Job分组的通用版本:中文版：[https://grafana.com/grafana/dashboards/16098](https://grafana.com/grafana/dashboards/16098)
 ### English Version：[https://grafana.com/grafana/dashboards/11074](https://grafana.com/grafana/dashboards/11074)
 
 ---
+### ECS自动同步版：通过ConsulManager来管理云厂商的ECS监控：支持自动同步采集云厂商的ECS信息(包括到期日)与分组信息，并且针对自动采集的这些字段来做更加友好的展示。
+### [https://grafana.com/grafana/dashboards/8919](https://grafana.com/grafana/dashboards/8919-1-node-exporter-for-prometheus-dashboard-cn-0413-consulmanager/)
 
 # 推荐使用【ConsulManager】来管理主机监控与站点监控
 ## [【ConsulManager介绍】](https://github.com/starsliao/ConsulManager)
