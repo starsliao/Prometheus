@@ -1,6 +1,8 @@
 ### 基于推送方式的进程监控脚本
 说明：监控进程所在主机无需启动后台服务方式监控，而是使用定时任务来推送监控指标到pushgateway。
 ##### 【进程监控-1655180951178.json】 为grafana看板，导入即可。
+### grafana 看板
+![图片](https://user-images.githubusercontent.com/3349611/224199577-fd131800-c998-434d-8fbe-3ece8c24e5c0.png)
 
 1. 部署Pushgateway并增加到Prometheus
 ```
@@ -55,7 +57,3 @@ ps -ef|grep {进程名}
 ```
   - linux_proc.yaml文件说明
   ```
- 
-### grafana 看板
-![图片](https://user-images.githubusercontent.com/3349611/224199577-fd131800-c998-434d-8fbe-3ece8c24e5c0.png)
-
