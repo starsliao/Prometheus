@@ -1,5 +1,5 @@
-###  Grafana v6.7.X/v7.1.X + windows_exporter 0.13.0测试通过
-#### Windows的Prometheus监控看板展示，增加了资源汇总展示，优化了明细展示。更新支持windows_exporter 0.13.0。
+###  Grafana v9 + windows_exporter 0.22.0测试通过
+#### Windows的Prometheus监控看板展示，增加了资源汇总展示，优化了明细展示。更新支持windows_exporter 0.22.0。
 ### 中文版：[https://grafana.com/grafana/dashboards/10467](https://grafana.com/grafana/dashboards/10467)
 
 
