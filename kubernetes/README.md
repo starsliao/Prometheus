@@ -1,6 +1,6 @@
-## K8S Dashboard CN 20240513 StarsL.cn 下载地址:
+### K8S Dashboard CN 20240513 StarsL.cn Grafana官方地址:
 [https://grafana.com/grafana/dashboards/13105](https://grafana.com/grafana/dashboards/13105)
-### Grafana看板ID: 13105
+## Grafana看板ID: 13105
 #### kubernetes资源全面展示！包含K8S整体资源总览、微服务资源明细、Pod资源明细及K8S网络带宽，优化重要指标展示。
 ### 更新说明
 ##### v20240513
