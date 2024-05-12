@@ -6,8 +6,14 @@
 ```
 # kube-state-metrics部署在ops-monit命名空间
 kubectl create namespace ops-monit
+# 选择适合K8S版本的kube-state-metrics,本仓库的kube-state-metrics镜像已经存放在阿里云. 
+# 1.24以下版本的K8S安装kube-state-metrics_v2.3.0的都没问题,版本较新的K8S可以安装新版的kube-state-metrics,参考[官方](https://github.com/kubernetes/kube-state-metrics)说明.
 cd kube-state-metrics
 kubectl apply -f .
+```
+### 适合本看板的Prometheus K8S JOB配置参考
+```
+
 ```
 ## Kubernetes for Prometheus Dashboard 使用与prometheus相关配置说明，请参考：
 [https://grafana.com/grafana/dashboards/13105](https://grafana.com/grafana/dashboards/13105)
