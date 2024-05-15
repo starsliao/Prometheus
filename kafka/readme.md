@@ -53,12 +53,17 @@ services:
 - 生产与消费的速率
 - 异常的消费与Topic展示
 - 分区级别的积压与消费明细
+
+### 赞赏与关注公众号【**云原生DevOps**】加入交流群（请备注：K8S），获取更多...
+
+**如果看不到图片请点击该链接：[https://starsl.cn/static/img/thanks.png](https://starsl.cn/static/img/thanks.png)**
+![](https://starsl.cn/static/img/thanks.png)
+
 ### 截图
 - 全局信息、消费者与Topic、异常与积压分析
-
-
+![](https://grafana.com/api/dashboards/21078/images/16236/image)
 - 分区维度明细
-
+![](https://grafana.com/api/dashboards/21078/images/16237/image)
 
 ### 看板下载
 - Grafana看板ID：21078
