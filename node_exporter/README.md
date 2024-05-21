@@ -1,5 +1,7 @@
 #### English Version：https://grafana.com/grafana/dashboards/11074
 
+---
+
 ### 🎉Node Exporter Grafana Dashboard 更新啦!
 
 #### **Node Exporter Dashboard分为2个版本**
