@@ -1,0 +1,56 @@
+- name: Linux-Proc
+  rules:
+  - alert: 业务进程CPU过高
+    expr: (linux_proc_cpu_percent > 180) * on (A00_iid,pid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv,ifile,icwd) total:linux_proc_info
+    for: 2m
+    labels:
+      alertype: proc
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}({{ $labels.A03_igroup }}-{{ $labels.A05_ienv }})-{{ $labels.pid }}进程{{ $labels.ifile }}({{ $labels.icwd }})：CPU使用率为{{ $value | humanize }}\n> {{ $labels.A01_iaccount}}-{{ $labels.A04_izone }}_{{ $labels.A00_iid }} [【详细】](http://prometheus.casstime.com/d/yoPfIkqWk/a-li-yun-jin-cheng-jian-kong?orgId=1&var-A01_iaccount=All&var-A05_ienv=All&var-A03_igroup=All&var-A02_iname=All&var-A00_iid={{ $labels.A00_iid }}&var-pid={{ $labels.pid }})"
+
+  - alert: 业务进程内存过高
+    expr: (linux_proc_memory_percent > 85) * on (A00_iid,pid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv,ifile,icwd) total:linux_proc_info
+    for: 2m
+    labels:
+      alertype: proc
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}({{ $labels.A03_igroup }}-{{ $labels.A05_ienv }})-{{ $labels.pid }}进程{{ $labels.ifile }}({{ $labels.icwd }})：内存使用率为{{ $value | humanize }}%\n> {{ $labels.A01_iaccount}}-{{ $labels.A04_izone }}_{{ $labels.A00_iid }} [【详细】](http://prometheus.casstime.com/d/yoPfIkqWk/a-li-yun-jin-cheng-jian-kong?orgId=1&var-A01_iaccount=All&var-A05_ienv=All&var-A03_igroup=All&var-A02_iname=All&var-A00_iid={{ $labels.A00_iid }}&var-pid={{ $labels.pid }})"
+
+  - alert: 业务进程IOPS过高
+    expr: (irate(linux_proc_io_read_count[5m]) > 8000)* on (A00_iid,pid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv,ifile,icwd) total:linux_proc_info or (irate(linux_proc_io_write_count[5m]) > 8000)* on (A00_iid,pid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv,ifile,icwd) total:linux_proc_info
+    for: 5m
+    labels:
+      alertype: proc
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}({{ $labels.A03_igroup }}-{{ $labels.A05_ienv }})-{{ $labels.pid }}进程{{ $labels.ifile }}({{ $labels.icwd }})：IOPS为{{ $value | humanize }}\n> {{ $labels.A01_iaccount}}-{{ $labels.A04_izone }}_{{ $labels.A00_iid }} [【详细】](http://prometheus.casstime.com/d/yoPfIkqWk/a-li-yun-jin-cheng-jian-kong?orgId=1&var-A01_iaccount=All&var-A05_ienv=All&var-A03_igroup=All&var-A02_iname=All&var-A00_iid={{ $labels.A00_iid }}&var-pid={{ $labels.pid }})"
+
+  - alert: 业务进程打开文件描述符过高
+    expr: (linux_proc_num_fds/ linux_proc_num_fds_limit >0.7) * on (A00_iid,pid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv,ifile,icwd) total:linux_proc_info
+    for: 2m
+    labels:
+      alertype: proc
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}({{ $labels.A03_igroup }}-{{ $labels.A05_ienv }})-{{ $labels.pid }}进程{{ $labels.ifile }}({{ $labels.icwd }})：打开文件描述符超过70%\n> {{ $labels.A01_iaccount}}-{{ $labels.A04_izone }}_{{ $labels.A00_iid }} [【详细】](http://prometheus.casstime.com/d/yoPfIkqWk/a-li-yun-jin-cheng-jian-kong?orgId=1&var-A01_iaccount=All&var-A05_ienv=All&var-A03_igroup=All&var-A02_iname=All&var-A00_iid={{ $labels.A00_iid }}&var-pid={{ $labels.pid }})"
+
+  - alert: 业务进程停止
+    expr: linux_proc_error * on (A00_iid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv) ali_ecs_info
+    for: 2m
+    labels:
+      alertype: proc
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}({{ $labels.A03_igroup }}-{{ $labels.A05_ienv }})异常进程{{ $labels.ifile }}({{ $labels.icwd }})：停止\n> {{ $labels.A01_iaccount}}-{{ $labels.A04_izone }}_{{ $labels.A00_iid }} [【详细】](http://prometheus.casstime.com/d/yoPfIkqWk/a-li-yun-jin-cheng-jian-kong?orgId=1&var-A01_iaccount=All&var-A05_ienv=All&var-A03_igroup=All&var-A02_iname=All&var-A00_iid={{ $labels.A00_iid }}&var-pid=All)"
+
+  - alert: 业务进程重启
+    expr: (linux_proc_durn < 3600) * on (A00_iid,pid) group_left(A01_iaccount,A02_iname,A03_igroup,A04_izone,A05_ienv,ifile,icwd) total:linux_proc_info
+    for: 2m
+    labels:
+      alertype: proc
+      severity: critical
+    annotations:
+      description: "{{ $labels.A02_iname }}({{ $labels.A03_igroup }}-{{ $labels.A05_ienv }})-{{ $labels.pid }}进程{{ $labels.ifile }}({{ $labels.icwd }})：启动不足1小时\n> {{ $labels.A01_iaccount}}-{{ $labels.A04_izone }}_{{ $labels.A00_iid }} [【详细】](http://prometheus.casstime.com/d/yoPfIkqWk/a-li-yun-jin-cheng-jian-kong?orgId=1&var-A01_iaccount=All&var-A05_ienv=All&var-A03_igroup=All&var-A02_iname=All&var-A00_iid={{ $labels.A00_iid }}&var-pid={{ $labels.pid }})"
+
