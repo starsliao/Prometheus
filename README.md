@@ -20,3 +20,6 @@
 # 特别鸣谢
 ## 赞赏与关注公众号【**云原生DevOps**】加入运维群交流，获取更多...
 ![](https://starsl.cn/static/img/thanks.png)
+
+
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
